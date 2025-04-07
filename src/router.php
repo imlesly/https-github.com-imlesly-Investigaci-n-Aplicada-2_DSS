@@ -1,34 +1,34 @@
 <?php
-use React\Http\Message\Response;
-use Psr\Http\Message\ServerRequestInterface;
+require_once __DIR__ . '/Datahandler.php';
 
-require_once __DIR__ . '/DataHandler.php';
-require_once __DIR__ . '/ContactHandler.php';
-
-function routeRequest(ServerRequestInterface $request)
-{
+function routeRequest($request) {
     $path = $request->getUri()->getPath();
-    $method = $request->getMethod();
 
-    if ($path === "/") {
-        return new Response(200, ['Content-Type' => 'text/html'], file_get_contents(__DIR__ . '/../public/index.html'));
+    // Rutas para archivos estáticos
+    if ($path === '/') {
+        return new React\Http\Message\Response(
+            200,
+            ['Content-Type' => 'text/html'],
+            file_get_contents(__DIR__ . '/../public/index.html')
+        );
     }
 
-    if ($path === "/contact" && $method === "GET") {
-        return new Response(200, ['Content-Type' => 'text/html'], file_get_contents(__DIR__ . '/../public/contact.html'));
+    if ($path === '/data-view') {
+        return new React\Http\Message\Response(
+            200,
+            ['Content-Type' => 'text/html'],
+            file_get_contents(__DIR__ . '/../public/data-view.html')
+        );
     }
 
-    if ($path === "/contact" && $method === "POST") {
-        return handleContactForm($request);
-    }
-
-    if ($path === "/style.css") {
-        return new Response(200, ['Content-Type' => 'text/css'], file_get_contents(__DIR__ . '/../public/style.css'));
-    }
-
-    if (str_starts_with($path, "/data")) {
+    // Ruta para la API de datos
+    if (strpos($path, '/api/data') === 0) {
         return handleDataRequest($request);
     }
 
-    return new Response(404, [], "Ruta no encontrada");
+    return new React\Http\Message\Response(
+        404,
+        ['Content-Type' => 'text/plain'],
+        'Not found'
+    );
 }

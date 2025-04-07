@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laptop/phpreact',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '8060bb201108d0e2af2f0dff1c259cf8eb9e231d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'laptop/phpreact' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '8060bb201108d0e2af2f0dff1c259cf8eb9e231d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
