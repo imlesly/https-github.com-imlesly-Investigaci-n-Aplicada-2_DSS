@@ -1,0 +1,20 @@
+{
+    "name": "laptop/phpreact",
+    "autoload": {
+        "psr-4": {
+            "Laptop\\Phpreact\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "EdgarMelendez06",
+            "email": "GM240279@alumno.udb.edu.org.sv"
+        }
+    ],
+    "require": {
+        "react/http": "^1.11",
+        "react/event-loop": "^1.5",
+        "react/promise": "^3.2",
+        "react/mysql": "^0.6.0"
+    }
+}
