@@ -21,6 +21,14 @@ function routeRequest($request) {
         );
     }
 
+    if ($path === '/contact') {
+        return new React\Http\Message\Response(
+            200,
+            ['Content-Type' => 'text/html'],
+            file_get_contents(__DIR__ . '/../public/contact.html')
+        );
+    }
+
     // Ruta para la API de datos
     if (strpos($path, '/api/data') === 0) {
         return handleDataRequest($request);
@@ -29,6 +37,6 @@ function routeRequest($request) {
     return new React\Http\Message\Response(
         404,
         ['Content-Type' => 'text/plain'],
-        'Not found'
+        'Not found 404'
     );
 }

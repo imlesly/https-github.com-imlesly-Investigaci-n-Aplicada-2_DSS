@@ -8,7 +8,6 @@ function handleDataRequest(ServerRequestInterface $request)
     $loop = \React\EventLoop\Loop::get();
     $factory = new Factory($loop);
     
-    // Asegúrate de que estos datos coincidan con tu configuración de MySQL
     $db = $factory->createLazyConnection('root:@localhost/dssdb2');
 
     $method = $request->getMethod();
